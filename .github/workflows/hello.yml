@@ -1,0 +1,21 @@
+name: 我的第一个自动化
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取仓库代码
+        uses: actions/checkout@v5
+
+      - name: 打招呼
+        run: echo "你好！有人刚刚更新了仓库 🎉"
+
+      - name: 看看仓库里有什么
+        run: ls -la
+
+      - name: 统计 README 有多少行
+        run: wc -l README.md
